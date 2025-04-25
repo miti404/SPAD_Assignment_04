@@ -14,11 +14,21 @@ class _HomePageState extends State<HomePage> {
   int _currentIndex = 0;
 
   final List<Widget> _pages = [
-    const Center(
-      child: Text(
-        "Welcome to the Home Page!",
-        style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-      ),
+    Stack(
+      children: [
+        Positioned.fill(
+          child: Image.asset(
+            "assets/images/img.jpg",
+            fit: BoxFit.cover, // Ensure the image fits properly
+          ),
+        ),
+        const Center(
+          child: Text(
+            "Welcome to the Home Page!",
+            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+          ),
+        ),
+      ],
     ),
     const AboutPage(),
     const ContactPage(),
@@ -28,7 +38,15 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Home Page"),
+        title: const Text("Currency Converter" ,
+          style: TextStyle(
+            fontSize: 25,
+            fontWeight: FontWeight.bold,
+            color: Colors.white
+          ),
+        ),
+        backgroundColor: Theme.of(context).primaryColor,
+
         centerTitle: true,
       ),
       drawer: Drawer(
@@ -45,8 +63,12 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             ListTile(
+
               leading: const Icon(Icons.monetization_on),
+              iconColor: Theme.of(context).primaryColor,
+
               title: const Text("Currency Converter"),
+              textColor: Theme.of(context).primaryColor,
               onTap: () {
                 Navigator.push(
                   context,

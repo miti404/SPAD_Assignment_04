@@ -7,11 +7,22 @@ class AboutPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Text(
-          "This is the About Page.",
-          style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+        child: SizedBox(
+          width: 400,
+          height: 200,
+          child: Card(
+            elevation: 5,
+            margin: EdgeInsets.all(16),
+            child: Center(
+              child: Text(
+                "This is the About Page.",
+                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              ),
+            ),
+          ),
         ),
       ),
     );
   }
 }
+
